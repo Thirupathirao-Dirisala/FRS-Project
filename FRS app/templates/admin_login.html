@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        function updateTime() {
+          var today = new Date();
+          var time = today.toLocaleTimeString();
+          document.getElementById("time").innerHTML = time;
+          setTimeout(updateTime, 1000); // Call this function again in 1 second
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image:url('static/login1.png');
+		
+    		background-size: cover; /* or 'contain' */
+    		background-position: center;
+    		background-repeat: no-repeat;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+
+        .login-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        input[type="email"],
+        input[type="password"],input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #666;
+        }
+
+        button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .extra-options {
+            margin-top: 10px;
+        }
+
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+	.banner {
+    background-color:white;
+	border-radius:5px;
+	border:3px solid black;
+    color:black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.banner-text h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.timer {
+    font-size: 18px;
+}
+.dum,.typed {
+    display:none;
+}
+    </style>
+</head>
+<body>
+	<div class="banner">
+        <div class="logo">
+            <a href="/"><img src="https://cdn-icons-gif.flaticon.com/14642/14642524.gif" alt="FRS Logo"></a>
+        </div>
+        <div class="banner-text">
+            <h1>Face Recognition Attendance System</h1>
+        </div>
+        <div id="timer" class="timer">
+            <span class="navbar-text" id="time">
+            </span>
+            <script>updateTime();</script>
+        </div>
+    </div><br/><br/><br/><br/><br/>
+    <div class="login-container">
+        <div class="login-form">
+            <img src="static/admin_1.png" alt="Logo" class="logo">
+            <h2>Admin Login</h2>
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="pass" id="password" placeholder="Password" required>
+                    <i class="fas fa-eye toggle-password" onclick="togglePasswordVisibility()"></i>
+                </div>
+                <h5 style="color:red">{{err}}</h5>
+                <div class="form-group">
+                    <button type="submit">Login</button>
+                </div>
+                <input type="text" class="dum" name="type" value="admin"/>
+            </form>
+            <div class="extra-options">
+                <form action="/forgot" method="post">
+                    <input type="text" class="typed" name="typed" value="admin">
+                    <button type="submit">Forgot Password?</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Function to clear form fields
+        function clearFormFields() {
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        }
+
+        window.addEventListener('pageshow', function(event) {
+            var historyTraversal = event.persisted || 
+                                   (typeof window.performance != 'undefined' && 
+                                    window.performance.navigation.type === 2);
+            if (historyTraversal) {
+                // Clear form fields when navigating back to the page
+                window.location.href="/logout"
+            }
+        });
+
+    </script>
+    <script>
+        
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var icon = document.querySelector(".toggle-password");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
+</body>
+</html>

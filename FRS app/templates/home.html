@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script>
+        function updateTime() {
+          var today = new Date();
+          var time = today.toLocaleTimeString();
+          document.getElementById("time").innerHTML = time;
+          setTimeout(updateTime, 1000); // Call this function again in 1 second
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            align-items: center;
+            background-image:url('https://wallpapertag.com/wallpaper/full/1/a/1/350829-widescreen-website-background-1920x1080-windows-xp.jpg');
+		
+    		background-size: cover; /* or 'contain' */
+    		background-position: center;
+    		background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .banner {
+            background-color: #fff;
+            border-radius: 5px;
+            border: 3px solid black;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .banner-text h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .timer {
+            font-size: 18px;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        }
+        
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .button-27 {
+            position: relative;
+            padding: 16px;
+            background: linear-gradient(0deg, #fcfcfc 0%, #f5f5f5 100%);
+            border: 6px solid transparent;
+            border-radius: 16px;
+            background-clip: padding-box;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5), 1px 3px 3px 2px #fff, 0 0 0 6px #ECECEC;
+            border-radius: 16px;
+            font-family: "Inter", sans-serif;
+            font-size: 18px;
+            line-height: 1;
+            transition: border 0.1s ease-in-out, padding 0.1s ease-in-out, margin 0.1s ease-in-out;
+        }
+        
+        .button-27:after {
+            position: absolute;
+            top: -6px;
+            bottom: -6px;
+            left: -6px;
+            right: -6px;
+            background: linear-gradient(#fff, #ededed);
+            content: "";
+            z-index: -1;
+            border-radius: 16px;
+        }
+        
+        .button-27:hover {
+            border: 2px solid transparent;
+            background-image: linear-gradient(180deg, #E6E6E6 0%, #F7F7F7 100%);
+            box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.35), 0 0 0 6px #ECECEC;
+            padding: 20px;
+        }
+        
+        .button-27:active {
+            border-top: 1px solid transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="logo">
+            <a href="#"><img src="https://cdn-icons-gif.flaticon.com/14642/14642524.gif" alt="FRS Logo"></a>
+        </div>
+        <div class="banner-text">
+            <h1>Face Recognition Attendance System</h1>
+        </div>
+        <div id="timer" class="timer">
+            <span class="navbar-text" id="time">
+            </span>
+            <script>updateTime();</script>
+        </div>
+    </div>
+
+    <div class="cards-container">
+        <div class="card">
+            <img src="/static/admin_1.png" alt="Admin Login">
+            <h3>Admin Login</h3>
+            <button class="button-27" role="button" onclick="location.href='/admin_login'">Login</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/staff.jpg" alt="Staff Login">
+            <h3>Faculty Login</h3>
+            <button class="button-27" role="button" onclick="location.href='/staff_login'">Login</button>
+        </div>
+
+        <div class="card">
+            <img src="/static/student.jpeg" alt="Student Login">
+            <h3>Student Login</h3>
+            <button class="button-27" role="button" onclick="location.href='/student_login'">Login</button>
+        </div>
+    </div>
+</body>
+</html>
