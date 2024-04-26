@@ -1,4 +1,5 @@
-#Face Recognition Attendance System
+Face Recognition Attendance System
+
 Welcome to the Face Recognition Attendance System repository! This project is aimed at providing a convenient and efficient solution for managing attendance using facial recognition technology. Below are some key features of our system:
 
 Features:
@@ -17,19 +18,3 @@ Store attendance data in a CSV file for further analysis.
 Student Access:
 Students can:
 View their attendance reports to track their attendance history.
-Getting Started:
-To get started with the Face Recognition Attendance System, follow these steps:
-
-Clone the repository to your local machine:
-bash
-Copy code
-git clone https://github.com/your-username/face-recognition-attendance-system.git
-Install the necessary dependencies:
-bash
-Copy code
-pip install -r requirements.txt
-Run the application:
-bash
-Copy code
-python main.py
-Follow the on-screen instructions to log in and use the system according to your role (admin, faculty, or student).
